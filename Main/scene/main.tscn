@@ -4,9 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://byvctmel2lssp" path="res://Main/assets/sounds/fire-crackles.mp3" id="3_dfq3y"]
 [ext_resource type="AudioStream" uid="uid://dwgtlgjy2brdi" path="res://Main/assets/sounds/party.mp3" id="4_15f7y"]
 [ext_resource type="PackedScene" uid="uid://cs5efsqxoenrw" path="res://Main/objects/candle.tscn" id="4_x72do"]
-[ext_resource type="AudioStream" uid="uid://dilkqerf13cdk" path="res://Main/assets/sounds/universe-hum-buzz.wav" id="5_5ypm3"]
 [ext_resource type="Texture2D" uid="uid://bjkhsy3qtskmi" path="res://Main/assets/sprites/Portal.png" id="5_ojsly"]
 [ext_resource type="PackedScene" uid="uid://ynwdu4vhi141" path="res://Main/objects/cultist.tscn" id="6_n7uhf"]
+[ext_resource type="AudioStream" uid="uid://c5fil1pmy351g" path="res://Main/assets/sounds/universe-hum-buzz.mp3" id="6_nyq6x"]
 [ext_resource type="AudioStream" uid="uid://sisexjlqc6st" path="res://Main/assets/sounds/page-flip.wav" id="7_ih6p1"]
 [ext_resource type="Script" path="res://Main/scene/Portal.gd" id="8_jaliw"]
 [ext_resource type="Script" path="res://Main/scene/OldOne.gd" id="8_qqgc7"]
@@ -119,7 +119,7 @@ stream = ExtResource("10_83hx3")
 volume_db = -7.0
 
 [node name="PortalHum" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_5ypm3")
+stream = ExtResource("6_nyq6x")
 volume_db = -15.0
 
 [node name="PageFlip" type="AudioStreamPlayer2D" parent="."]
