@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://n2bk7daq0xyd"]
+
+[ext_resource type="PackedScene" uid="uid://dk41yqgraj1mj" path="res://Main/objects/book.tscn" id="1_moiju"]
+[ext_resource type="FontFile" uid="uid://c483ft8t5xcdi" path="res://Main/assets/fonts/MarckScript-Regular.ttf" id="2_ogyk4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" parent="." instance=ExtResource("1_moiju")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 180.0
+offset_top = 422.0
+offset_right = 270.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ogyk4")
+theme_override_font_sizes/font_size = 26
+text = "FINAL"
+horizontal_alignment = 1

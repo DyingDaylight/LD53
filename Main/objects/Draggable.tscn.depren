@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Main/objects/DraggableScr.gd" id="1_sjukg"]
+[ext_resource type="FontFile" uid="uid://c483ft8t5xcdi" path="res://Main/assets/fonts/MarckScript-Regular.ttf" id="2_233k1"]
+
+[node name="ColorRect" type="ColorRect"]
+custom_minimum_size = Vector2(160, 40)
+script = ExtResource("1_sjukg")
+
+[node name="Label" type="Label" parent="." groups=["drop_targets"]]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_233k1")
+theme_override_font_sizes/font_size = 26
+text = "ron"
+horizontal_alignment = 1

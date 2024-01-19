@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk41yqgraj1mj"]
+
+[ext_resource type="Texture2D" uid="uid://bcdbxc31evnml" path="res://Main/assets/sprites/necronomicon.png" id="1_4gopa"]
+[ext_resource type="Texture2D" uid="uid://dsowaff1ugg71" path="res://Main/assets/sprites/Bookmark.png" id="2_8tmfw"]
+[ext_resource type="Script" path="res://Main/objects/Bookmark.gd" id="3_6wtyk"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i7fy8"]
+polygon = PackedVector2Array(-830.278, 367.6, -862.357, -151.014, -813.295, -184.794, -717.058, -272.223, -337.772, -339.782, -154.734, -343.756, 54.7228, -298.054, 209.456, -339.782, 352.868, -365.613, 494.393, -361.639, 613.273, -323.886, 701.962, -331.834, 805.747, -272.223, 849.148, -242.418, 849.148, 119.222, 849.148, 375.548)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bookmark" type="Sprite2D" parent="."]
+position = Vector2(495, 223)
+scale = Vector2(0.529943, 0.503264)
+texture = ExtResource("2_8tmfw")
+script = ExtResource("3_6wtyk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(514, 411)
+scale = Vector2(0.529943, 0.503264)
+texture = ExtResource("1_4gopa")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D2"]
+occluder = SubResource("OccluderPolygon2D_i7fy8")

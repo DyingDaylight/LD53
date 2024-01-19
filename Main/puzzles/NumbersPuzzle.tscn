@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=3 uid="uid://6wrkwxwstewt"]
+
+[ext_resource type="Script" path="res://Main/puzzles/NumbersPuzzle.gd" id="1_exnje"]
+[ext_resource type="FontFile" uid="uid://c483ft8t5xcdi" path="res://Main/assets/fonts/MarckScript-Regular.ttf" id="1_lf7se"]
+[ext_resource type="PackedScene" uid="uid://dk41yqgraj1mj" path="res://Main/objects/book.tscn" id="2_hyxut"]
+[ext_resource type="AudioStream" uid="uid://sisexjlqc6st" path="res://Main/assets/sounds/page-flip.wav" id="4_hp7qe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sr0om"]
+
+[sub_resource type="Gradient" id="Gradient_i87s2"]
+offsets = PackedFloat32Array(0, 0.230159, 1)
+colors = PackedColorArray(0, 0.313726, 0, 1, 0.627451, 0.556863, 0.556863, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01u0r"]
+gradient = SubResource("Gradient_i87s2")
+fill_from = Vector2(0.504274, 0.974359)
+fill_to = Vector2(0.504274, 0.769231)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efsvd"]
+texture = SubResource("GradientTexture2D_01u0r")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7txi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vek8u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f741u"]
+texture = SubResource("GradientTexture2D_01u0r")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxs5j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1e75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf5i2"]
+
+[node name="NumbersPuzzle" type="Node2D"]
+script = ExtResource("1_exnje")
+
+[node name="Sprite2D2" parent="." instance=ExtResource("2_hyxut")]
+
+[node name="Task" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 192.0
+offset_top = 339.0
+offset_right = 232.0
+offset_bottom = 379.0
+
+[node name="Label" type="Label" parent="Task"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 185.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "26 - bisti rur
+67 - ngorbisti thest
+92 - ravbistasr sa
+279 - sa dush ngorbistasr woft
+314 - ngor dush asrrav "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Task"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = -4.0
+offset_right = 680.0
+offset_bottom = 197.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Task/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sr0om")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Task/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "16 - "
+
+[node name="Answer1" type="LineEdit" parent="Task/VBoxContainer/PanelContainer/HBoxContainer" groups=["number_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_efsvd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7txi")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Task/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vek8u")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Task/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/VBoxContainer/PanelContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "83 - "
+
+[node name="Answer2" type="LineEdit" parent="Task/VBoxContainer/PanelContainer2/HBoxContainer2" groups=["number_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_f741u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uxs5j")
+
+[node name="PanelContainer4" type="PanelContainer" parent="Task/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f1e75")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Task/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/VBoxContainer/PanelContainer4/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "327 - "
+
+[node name="Answer3" type="LineEdit" parent="Task/VBoxContainer/PanelContainer4/HBoxContainer3" groups=["number_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uxs5j")
+flat = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="Task/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hf5i2")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Task/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/VBoxContainer/PanelContainer3/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "999 - "
+
+[node name="Answer4" type="LineEdit" parent="Task/VBoxContainer/PanelContainer3/HBoxContainer4" groups=["number_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uxs5j")
+flat = true
+
+[node name="Hint" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Hint"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 321.0
+offset_right = 523.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lf7se")
+theme_override_font_sizes/font_size = 26
+text = "NUMBERS_HINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageFlip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hp7qe")
+
+[connection signal="text_changed" from="Task/VBoxContainer/PanelContainer/HBoxContainer/Answer1" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Task/VBoxContainer/PanelContainer/HBoxContainer/Answer1" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Task/VBoxContainer/PanelContainer2/HBoxContainer2/Answer2" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Task/VBoxContainer/PanelContainer2/HBoxContainer2/Answer2" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Task/VBoxContainer/PanelContainer4/HBoxContainer3/Answer3" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Task/VBoxContainer/PanelContainer4/HBoxContainer3/Answer3" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Task/VBoxContainer/PanelContainer3/HBoxContainer4/Answer4" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Task/VBoxContainer/PanelContainer3/HBoxContainer4/Answer4" to="." method="_on_line_edit_text_submitted"]

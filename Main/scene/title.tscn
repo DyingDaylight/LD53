@@ -1,0 +1,171 @@
+[gd_scene load_steps=17 format=3 uid="uid://coyyoahwsqh22"]
+
+[ext_resource type="FontFile" uid="uid://c483ft8t5xcdi" path="res://Main/assets/fonts/MarckScript-Regular.ttf" id="1_523vp"]
+[ext_resource type="Script" path="res://Main/scene/title.gd" id="1_kppjs"]
+[ext_resource type="Texture2D" uid="uid://dqlfi8tgnr48y" path="res://Main/assets/sprites/title1.png" id="1_n1o5j"]
+[ext_resource type="Texture2D" uid="uid://da74b24e8gmei" path="res://Main/assets/sprites/title2.png" id="1_w6j8x"]
+[ext_resource type="AudioStream" uid="uid://jylee5wapty7" path="res://Main/assets/sounds/pencil.wav" id="2_vq8cb"]
+[ext_resource type="Texture2D" uid="uid://d0b5pd88ped51" path="res://Main/assets/sprites/title7.png" id="3_ogqgs"]
+[ext_resource type="Texture2D" uid="uid://cd88qwl30tep5" path="res://Main/assets/sprites/title6.png" id="4_gf7ox"]
+[ext_resource type="Texture2D" uid="uid://dl0ce0in0064" path="res://Main/assets/sprites/title5.png" id="5_ogtik"]
+[ext_resource type="Texture2D" uid="uid://cqu6s67oxwjtr" path="res://Main/assets/sprites/title4.png" id="6_jaaho"]
+[ext_resource type="Texture2D" uid="uid://bgc88qexchgmw" path="res://Main/assets/sprites/title3.png" id="7_rheu1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohhe7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w6j8x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n1o5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ogqgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gf7ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ogtik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jaaho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rheu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_w6j8x")
+}],
+"loop": false,
+"name": &"start",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n1o5j")
+}],
+"loop": true,
+"name": &"temp",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6fyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcbu7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi6du"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_164e8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdmc0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kppjs")
+
+[node name="PencilSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vq8cb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Title" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(526, 206)
+scale = Vector2(0.543554, 0.543554)
+sprite_frames = SubResource("SpriteFrames_ohhe7")
+animation = &"start"
+
+[node name="Timer" type="Timer" parent="VBoxContainer/Title"]
+one_shot = true
+autostart = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s6fyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Hint" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_523vp")
+theme_override_font_sizes/font_size = 26
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Start" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_523vp")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xcbu7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qi6du")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_164e8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cdmc0")
+text = "START"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="EnButton" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_523vp")
+theme_override_font_sizes/font_size = 24
+text = "English"
+
+[node name="RuButton" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_523vp")
+theme_override_font_sizes/font_size = 24
+text = "Русский"
+
+[node name="Credits" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_523vp")
+theme_override_font_sizes/font_size = 20
+text = "by k8n for Ludum Dare 53"
+horizontal_alignment = 2
+
+[connection signal="timeout" from="VBoxContainer/Title/Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/EnButton" to="." method="_on_toggle_pressed" binds= [&"En"]]
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RuButton" to="." method="_on_toggle_pressed" binds= [&"Ru"]]

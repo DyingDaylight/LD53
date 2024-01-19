@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Delivery"
+run/main_scene="res://Main/scene/title.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://Main/assets/sprites/Проект (20230430090926).png"
+config/icon="res://Main/assets/sprites/Cthulhu.png"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=600
+window/stretch/mode="viewport"
+
+[input]
+
+test_ritual_succeesed={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Main/localization/text.en.translation", "res://Main/localization/text.ru.translation")
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0705882, 0.0392157, 0.101961, 1)

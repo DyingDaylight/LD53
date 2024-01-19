@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd6ihbn20xla1"]
+
+[ext_resource type="Script" path="res://Main/puzzles/PossessivePuzzle.gd" id="1_migs8"]
+[ext_resource type="PackedScene" uid="uid://dk41yqgraj1mj" path="res://Main/objects/book.tscn" id="2_xsi7p"]
+[ext_resource type="FontFile" uid="uid://c483ft8t5xcdi" path="res://Main/assets/fonts/MarckScript-Regular.ttf" id="3_g4dic"]
+[ext_resource type="AudioStream" uid="uid://sisexjlqc6st" path="res://Main/assets/sounds/page-flip.wav" id="4_i6bkr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi57l"]
+
+[node name="PossessivePuzzle" type="Node2D"]
+script = ExtResource("1_migs8")
+
+[node name="Sprite2D2" parent="." instance=ExtResource("2_xsi7p")]
+
+[node name="Task" type="Label" parent="."]
+offset_left = 146.0
+offset_top = 284.0
+offset_right = 457.0
+offset_bottom = 405.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "mishtesht shrilt - TG
+ph'lucsusht ron'gt - CT
+thurkesht shtog - VF"
+
+[node name="Answers" type="VBoxContainer" parent="."]
+offset_left = 551.0
+offset_top = 271.0
+offset_right = 862.0
+offset_bottom = 662.0
+theme_override_constants/separation = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Answers"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="LabelFrom1" type="Label" parent="Answers/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "phraltusht misht - "
+
+[node name="AnswerFrom1" type="LineEdit" parent="Answers/VBoxContainer" groups=["possesive_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi57l")
+flat = true
+caret_blink = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Answers"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="LabelFrom2" type="Label" parent="Answers/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "wsha'ngesht ph'lucs - "
+
+[node name="AnswerFrom2" type="LineEdit" parent="Answers/VBoxContainer2" groups=["possesive_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi57l")
+flat = true
+caret_blink = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Answers"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="LabelTo1" type="Label" parent="Answers/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "TEMP_GOD"
+
+[node name="LabelTo2" type="LineEdit" parent="Answers/VBoxContainer3" groups=["possesive_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi57l")
+flat = true
+caret_blink = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Answers"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="LabelTo2" type="Label" parent="Answers/VBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "CV"
+
+[node name="LabelTo3" type="LineEdit" parent="Answers/VBoxContainer4" groups=["possesive_answers"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi57l")
+flat = true
+caret_blink = true
+
+[node name="Hint" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Hint"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 321.0
+offset_right = 523.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g4dic")
+theme_override_font_sizes/font_size = 26
+text = "POSSESSION_HINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageFlip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i6bkr")
+
+[connection signal="text_changed" from="Answers/VBoxContainer/AnswerFrom1" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Answers/VBoxContainer/AnswerFrom1" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Answers/VBoxContainer2/AnswerFrom2" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Answers/VBoxContainer2/AnswerFrom2" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Answers/VBoxContainer3/LabelTo2" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Answers/VBoxContainer3/LabelTo2" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="Answers/VBoxContainer4/LabelTo3" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Answers/VBoxContainer4/LabelTo3" to="." method="_on_line_edit_text_submitted"]

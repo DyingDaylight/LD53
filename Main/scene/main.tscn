@@ -1,0 +1,275 @@
+[gd_scene load_steps=27 format=3 uid="uid://b0q06ttal8a4x"]
+
+[ext_resource type="Script" path="res://Main/scene/main.gd" id="1_ve4nf"]
+[ext_resource type="AudioStream" uid="uid://byvctmel2lssp" path="res://Main/assets/sounds/fire-crackles.mp3" id="3_dfq3y"]
+[ext_resource type="AudioStream" uid="uid://dwgtlgjy2brdi" path="res://Main/assets/sounds/party.mp3" id="4_15f7y"]
+[ext_resource type="PackedScene" uid="uid://cs5efsqxoenrw" path="res://Main/objects/candle.tscn" id="4_x72do"]
+[ext_resource type="AudioStream" uid="uid://dilkqerf13cdk" path="res://Main/assets/sounds/universe-hum-buzz.wav" id="5_5ypm3"]
+[ext_resource type="Texture2D" uid="uid://bjkhsy3qtskmi" path="res://Main/assets/sprites/Portal.png" id="5_ojsly"]
+[ext_resource type="PackedScene" uid="uid://ynwdu4vhi141" path="res://Main/objects/cultist.tscn" id="6_n7uhf"]
+[ext_resource type="AudioStream" uid="uid://sisexjlqc6st" path="res://Main/assets/sounds/page-flip.wav" id="7_ih6p1"]
+[ext_resource type="Script" path="res://Main/scene/Portal.gd" id="8_jaliw"]
+[ext_resource type="Script" path="res://Main/scene/OldOne.gd" id="8_qqgc7"]
+[ext_resource type="Shader" path="res://Main/scene/shimmering.gdshader" id="8_vmofl"]
+[ext_resource type="AudioStream" uid="uid://dko364rlfcnjw" path="res://Main/assets/sounds/applause.mp3" id="10_6e70d"]
+[ext_resource type="AudioStream" uid="uid://dfkrreu6ssny3" path="res://Main/assets/sounds/murmur.wav" id="10_83hx3"]
+[ext_resource type="Texture2D" uid="uid://cshh65e47uv36" path="res://Main/assets/sprites/light.png" id="10_lx1l2"]
+[ext_resource type="Script" path="res://Main/scene/PuzzleController.gd" id="12_vobei"]
+[ext_resource type="Texture2D" uid="uid://cdg7jc2isywss" path="res://Main/assets/sprites/OldOne1.png" id="14_ilhoe"]
+[ext_resource type="Texture2D" uid="uid://cuhdaqr0t4c8k" path="res://Main/assets/sprites/OldOne2.png" id="15_rolvm"]
+[ext_resource type="AudioStream" uid="uid://bqmnjy4cn8jrs" path="res://Main/assets/sounds/roar.mp3" id="16_mcreo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uc8cb"]
+shader = ExtResource("8_vmofl")
+
+[sub_resource type="Animation" id="Animation_gckly"]
+resource_name = "Scaling"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.675373, 0.675373)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxno1"]
+_data = {
+"Scaling": SubResource("Animation_gckly")
+}
+
+[sub_resource type="Animation" id="Animation_ipvfk"]
+resource_name = "Light"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1.8025),
+"update": 0,
+"values": [0.0, 5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5np8"]
+_data = {
+"Light": SubResource("Animation_ipvfk")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0ptt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ilhoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rolvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_mv0vt"]
+resource_name = "Appearing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OldOne/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.580852, 0.580852)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0ln5"]
+_data = {
+"Appearing": SubResource("Animation_mv0vt")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ve4nf")
+
+[node name="Applause" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6e70d")
+volume_db = -9.321
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dfq3y")
+volume_db = -5.887
+
+[node name="HappyParty" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_15f7y")
+volume_db = -8.0
+
+[node name="Murmur" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_83hx3")
+volume_db = -7.0
+
+[node name="PortalHum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5ypm3")
+volume_db = -15.0
+
+[node name="PageFlip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ih6p1")
+
+[node name="CandlesBack" type="Node2D" parent="."]
+
+[node name="Candle1" parent="CandlesBack" groups=["candles"] instance=ExtResource("4_x72do")]
+position = Vector2(35, 81)
+
+[node name="Particles" parent="CandlesBack/Candle1" index="0"]
+position = Vector2(1, -34)
+
+[node name="AnimatedSprite2D" parent="CandlesBack/Candle1" index="1"]
+position = Vector2(1, 2)
+scale = Vector2(0.171629, 0.163835)
+
+[node name="PointLight2D" parent="CandlesBack/Candle1" index="2"]
+position = Vector2(2, -39)
+
+[node name="Candle2" parent="CandlesBack" groups=["candles"] instance=ExtResource("4_x72do")]
+position = Vector2(986, 92)
+
+[node name="Particles" parent="CandlesBack/Candle2" index="0"]
+position = Vector2(0, -31)
+
+[node name="AnimatedSprite2D" parent="CandlesBack/Candle2" index="1"]
+position = Vector2(2, 1)
+scale = Vector2(0.159998, 0.154458)
+
+[node name="PointLight2D" parent="CandlesBack/Candle2" index="2"]
+position = Vector2(-3, -29)
+
+[node name="Cultists" type="Node2D" parent="."]
+
+[node name="Cultist18" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(515, 105)
+
+[node name="Cultist17" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(799, 75)
+
+[node name="Cultist16" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(873, 110)
+
+[node name="Cultist15" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(942, 238)
+
+[node name="Cultist14" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(796, 213)
+
+[node name="Cultist13" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(669, 135)
+
+[node name="Cultist12" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(368, 174)
+
+[node name="Cultist11" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(267, 112)
+
+[node name="Cultist10" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(169, 184)
+
+[node name="Cultist9" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(48, 251)
+
+[node name="Cultist8" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(973, 370)
+
+[node name="Cultist7" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(860, 294)
+
+[node name="Cultist6" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(714, 280)
+
+[node name="Cultist5" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(595, 204)
+
+[node name="Cultist4" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(461, 218)
+
+[node name="Cultist3" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(271, 275)
+
+[node name="Cultist2" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(117, 334)
+
+[node name="Cultist1" parent="Cultists" instance=ExtResource("6_n7uhf")]
+position = Vector2(36, 418)
+
+[node name="CandlesFront" type="Node2D" parent="."]
+
+[node name="Candle1" parent="CandlesFront" instance=ExtResource("4_x72do")]
+position = Vector2(999, 496)
+
+[node name="Candle2" parent="CandlesFront" instance=ExtResource("4_x72do")]
+position = Vector2(39, 531)
+
+[node name="Portal" type="Node2D" parent="."]
+visible = false
+position = Vector2(558, 162)
+script = ExtResource("8_jaliw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Portal"]
+material = SubResource("ShaderMaterial_uc8cb")
+position = Vector2(3.00003, 2)
+scale = Vector2(0.675373, 0.675373)
+texture = ExtResource("5_ojsly")
+
+[node name="Scaling" type="AnimationPlayer" parent="Portal/Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gxno1")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="Portal"]
+position = Vector2(1, 0)
+scale = Vector2(1.77344, 1.04956)
+color = Color(0.168627, 0.898039, 0.0117647, 0.223529)
+energy = 1.78571
+texture = ExtResource("10_lx1l2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal"]
+libraries = {
+"": SubResource("AnimationLibrary_h5np8")
+}
+
+[node name="PuzzleController" type="Node2D" parent="."]
+script = ExtResource("12_vobei")
+
+[node name="OldOne" type="Node2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(472, 196)
+script = ExtResource("8_qqgc7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="OldOne"]
+position = Vector2(6, 3)
+scale = Vector2(0.580852, 0.580852)
+sprite_frames = SubResource("SpriteFrames_x0ptt")
+frame_progress = 0.374981
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OldOne/Sprite"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_r0ln5")
+}
+
+[node name="Roar" type="AudioStreamPlayer2D" parent="OldOne"]
+stream = ExtResource("16_mcreo")
+volume_db = 5.0
+
+[editable path="CandlesBack/Candle1"]
+[editable path="CandlesBack/Candle2"]

@@ -1,0 +1,39 @@
+keys,en,ru
+MUSICIAN,musician,музыкант
+ART,art,искусство
+CULTIST,cultist,культист
+ARTIST,artist,художник
+CULT,cult,культ
+MUSICIANS,musicians,музыканты
+CULTS,cults,культы
+TG,tentacle of a god,щупальце бога
+CT,cultist of a temple,культисит храма
+VF,fang of a vampire,клык вампира
+AD,artist's dream,сон худоджника
+CM,madness of\n                a cultist,сумасшествие\n                культиста
+RS,ritual sacrifice,жертва ритуала
+TEMP_GOD,god of a temple - ,бог храма - 
+CV,cultist's vampire - ,вампир культиста - 
+GS,god of sacrifice,бог жертвы
+TS,temple of dream,храм сна
+HELP,Decipher the ancient language and finish the sacred ritual.,Расшифруй древний язык и заверши священный ритуал.
+RU,Russian,Русский
+EN,English,Английский
+START,Start,Начать
+FINAL,The ritual has succeeded.\nThe world is coming to an end.\nYou are finally rejoicing.,Ритуал удался.\nНаступает конец света.\nНаконец-то можно порадоваться.
+NUMBERS_HINT,Numbers\nNumbers are important.\nThey can be written.\nLook for the same numbers.\nStart small.\nTens are not always tens.,Числительные\nЧисла важны. Их можно записать.\nИщи одинаковые числа.\nНачинай с малого.\nДесятки не всегда десятки.
+SUFFIX_HINT,New words\nYou can create.\nLook for an actor.\nLook for many.\nLook fot many actors.,Новые слова\nТы можешь созидать.\nИщи деятеля.\nИщи многих.\nИщи многих деятелей.
+POSSESSION_HINT,Possessoin\nPossession defines.\nLook for similarities.\nPossessions are not always the same.,Принадлежность\nОбладание определяет.\nИщи сходства.\nОбладание не всегда одинаково.
+
+
+
+
+
+
+
+
+
+
+
+
+
